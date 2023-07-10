@@ -13,3 +13,6 @@ The assessment round would consist of the below tasks:
 2. You would need understanding of PHP and MySQL.
 3. Please implement at the minimum, book assignment functionality using
 the above tools.
+
+./installation.md
+./references.md
