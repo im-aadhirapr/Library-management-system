@@ -16,3 +16,7 @@ button:hover{
     background-color: rgb(219, 218, 218);
     color: #000000
 }
+td, th {
+    text-align: left;
+    padding: 8px; 
+}

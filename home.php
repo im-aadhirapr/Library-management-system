@@ -36,12 +36,22 @@
 
         <div id="addbook" class="innerright portion" style="<?php  if(!empty($_REQUEST['viewid'])){ echo "display:none";} else {echo ""; }?>">
         <h2>ADD NEW BOOK</h2>
-        <br>
         <form action="addbookserver_page.php" method="post" enctype="multipart/form-data">
-        <label>Book Id</label><input type="text" name="BookId"/></br>
-        <label>Book Name</label><input  type="text" name="BookName"/></br>
-        <label>Created On</label><input type="text" name="CreatedOn"/></br>
-        </br>
+            <br>
+            <table>
+                <tr>
+                <th>Book Id</th>
+                <td><input type="text" name="BookId" placeholder="BookID"></td>
+                </tr>
+                <tr>
+                <th>Book Name</th>
+                <td><input  type="text" name="BookName" placeholder="Book Name"></td>
+                </tr>
+                <tr>
+                <th>Created On</th>
+                <td><input type="date" name="CreatedOn" placeholder="Date"></td>
+                </tr>
+            </table>
         <input type="submit" value="SUBMIT"/>
         </form>
         </div>
@@ -55,8 +65,8 @@
             $u->getbook();
             $recordset=$u->getbook();
 
-            $table="<table style='font-family: Arial,sans-serif;border-collapse: collapse;width: 100%;'><tr><th style=' 
-            padding: 8px;'>Book Id</th><th>Book Name</th><th>Created On</th></tr>";
+            $table="<table style='font-family: Arial,sans-serif; border-collapse: ;width: 100%; border: 1px solid #000;'>
+            <tr><th>Book Id</th><th>Book Name</th><th>Created On</th></tr>";
             foreach($recordset as $row){
                 $table.="<tr>";
                 $table.="<td>$row[0]</td>";
