@@ -14,5 +14,7 @@ The assessment round would consist of the below tasks:
 3. Please implement at the minimum, book assignment functionality using
 the above tools.
 
-./installation.md
-./references.md
+### References
+- https://youtu.be/VCHXCusltqI
+- https://youtu.be/KZrjoKRUkZg
+- https://youtu.be/3xHrMwy-Y5A
