@@ -14,19 +14,23 @@ The assessment round would consist of the below tasks:
 3. Please implement at the minimum, book assignment functionality using
 the above tools.
 
+### Installation
+- Install Visual Studio Code:
+    - https://www.geeksforgeeks.org/how-to-install-visual-studio-code-on-windows/
+- Install xampp:
+    - https://youtu.be/VCHXCusltqI
+- Run xampp on Visual Studio Code with a demo code:
+    - https://youtu.be/3xHrMwy-Y5A
+    
+    To install the required extensions for php refer:
+    - https://youtu.be/Ry8tRRfxxf4
+
+    If MySQL Shutdown Unexpectedly you can refer:
+    - https://youtu.be/KZrjoKRUkZg
+
 ### References
 - https://youtu.be/VCHXCusltqI
 - https://youtu.be/KZrjoKRUkZg
 - https://youtu.be/3xHrMwy-Y5A
 - https://youtu.be/WmFHreVid-k
-
-### Installation
-- Install Visual Studio Code:
-    https://www.geeksforgeeks.org/how-to-install-visual-studio-code-on-windows/
-- Install xampp:
-     https://youtu.be/VCHXCusltqI
-- Run xampp on Visual Studio Code with a demo code:
-    https://youtu.be/3xHrMwy-Y5A
-    
-    If MySQL Shutdown Unexpectedly you can refer:
-    https://youtu.be/KZrjoKRUkZg
+- https://youtu.be/Ry8tRRfxxf4
