@@ -18,3 +18,15 @@ the above tools.
 - https://youtu.be/VCHXCusltqI
 - https://youtu.be/KZrjoKRUkZg
 - https://youtu.be/3xHrMwy-Y5A
+- https://youtu.be/WmFHreVid-k
+
+### Installation
+- Install Visual Studio Code:
+    https://www.geeksforgeeks.org/how-to-install-visual-studio-code-on-windows/
+- Install xampp:
+     https://youtu.be/VCHXCusltqI
+- Run xampp on Visual Studio Code with a demo code:
+    https://youtu.be/3xHrMwy-Y5A
+    
+    If MySQL Shutdown Unexpectedly you can refer:
+    https://youtu.be/KZrjoKRUkZg
