@@ -33,8 +33,8 @@
 
         <button onclick="openpart('addbook')" >ADD BOOK</button>
         <button onclick="openpart('bookreport')" >BOOK REPORT</button>
-        <button onclick="openpart('bookissue')" >ADD BOOK</button>
-        <button onclick="openpart('bookreturn')" >BOOK REPORT</button>
+        <button onclick="openpart('bookissue')" >TAKE BOOK</button>
+        <button onclick="openpart('bookreturn')" >RETURN BOOK</button>
 
         <div id="addbook" class="innerright portion" style="<?php  if(!empty($_REQUEST['viewid'])){ echo "display:none";} else {echo ""; }?>">
         <h2>ADD NEW BOOK</h2>
@@ -54,7 +54,7 @@
                 <td><input type="date" name="CreatedOn" placeholder="Date"></td>
                 </tr>
             </table>
-        <input type="submit" value="SUBMIT"/>
+        <button type="submit">SUBMIT</button>
         </form>
         </div>
 
@@ -85,9 +85,10 @@
         </div>
         </div>
 
+        <div class="rightinnerdiv"> 
         <div id="bookissue" class="innerright portion" style="<?php  if(!empty($_REQUEST['viewid'])){ echo "display:none";} else {echo ""; }?>">
         <h2>Book Issue</h2>
-        <form action=".php" method="post" enctype="multipart/form-data">
+        <form action="issue_book.php" method="post" enctype="multipart/form-data">
             <br>
             <table>
                 <tr>
@@ -103,13 +104,15 @@
                 <td><input  type="text" name="UserName" placeholder="User Name"></td>
                 </tr>
             </table>
-        <input type="submit" value="ISSUE"/>
+            <button type="submit">ISSUE</button>
         </form>
         </div> 
+        </div>
 
+        <div class="rightinnerdiv"> 
         <div id="bookreturn" class="innerright portion" style="<?php  if(!empty($_REQUEST['viewid'])){ echo "display:none";} else {echo ""; }?>">
         <h2>Book Return</h2>
-        <form action=".php" method="post" enctype="multipart/form-data">
+        <form action="return_book.php" method="post" enctype="multipart/form-data">
             <br>
             <table>
                 <tr>
@@ -121,9 +124,10 @@
                 <td><input  type="text" name="UserName" placeholder="User Name"></td>
                 </tr>
             </table>
-        <input type="submit" value="RETURN">
+            <button type="submit">RETURN</button>
         </form>
         </div> 
+        </div>
 
     </body>
 </html>
