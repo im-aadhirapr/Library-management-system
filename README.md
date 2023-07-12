@@ -29,8 +29,10 @@ the above tools.
     - https://youtu.be/KZrjoKRUkZg
 
 ### References
+- https://bard.google.com/
 - https://youtu.be/VCHXCusltqI
 - https://youtu.be/KZrjoKRUkZg
 - https://youtu.be/3xHrMwy-Y5A
 - https://youtu.be/WmFHreVid-k
 - https://youtu.be/Ry8tRRfxxf4
+- https://www.w3schools.com/php/default.asp

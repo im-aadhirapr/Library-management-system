@@ -33,6 +33,8 @@
 
         <button onclick="openpart('addbook')" >ADD BOOK</button>
         <button onclick="openpart('bookreport')" >BOOK REPORT</button>
+        <button onclick="openpart('bookissue')" >ADD BOOK</button>
+        <button onclick="openpart('bookreturn')" >BOOK REPORT</button>
 
         <div id="addbook" class="innerright portion" style="<?php  if(!empty($_REQUEST['viewid'])){ echo "display:none";} else {echo ""; }?>">
         <h2>ADD NEW BOOK</h2>
@@ -83,24 +85,45 @@
         </div>
         </div>
 
-<!--        <button onclick="openpart('addbook')">Add Books</button>
-        <div id="addbook">
-            <form action="" method="get">
-                <input type="number" name="bookid" placeholder="Book Id">
-                <input type="text" name="bookname" placeholder="Book Name">
-                <input type="date" name="date" placeholder="Date">
-                <input type="submit" value="SUBMIT">
-            </form>
-        </div>
-// Return issued table form
-        <button onclick="openpart('getyourbook')">Get Your Book</button>
-        <div id="getyourbook">
-            <form>
-                <input type="number" name="bookid" placeholder="Book Id">
-                <input type="text" name="user" placeholder="Name">
-                <input type="date" name="issue" placeholder="Issued On">
-                <input type="date" name="return" placeholder="Returned On">
-            </form>
-        </div>  -->
+        <div id="bookissue" class="innerright portion" style="<?php  if(!empty($_REQUEST['viewid'])){ echo "display:none";} else {echo ""; }?>">
+        <h2>Book Issue</h2>
+        <form action=".php" method="post" enctype="multipart/form-data">
+            <br>
+            <table>
+                <tr>
+                <th>Book Id</th>
+                <td><input type="text" name="BookId" placeholder="BookID"></td>
+                </tr>
+                <tr>
+                <th>Book Name</th>
+                <td><input type="text" name="BookName" placeholder="BookName"></td>
+                </tr>
+                <tr>
+                <th>User Name</th>
+                <td><input  type="text" name="UserName" placeholder="User Name"></td>
+                </tr>
+            </table>
+        <input type="submit" value="ISSUE"/>
+        </form>
+        </div> 
+
+        <div id="bookreturn" class="innerright portion" style="<?php  if(!empty($_REQUEST['viewid'])){ echo "display:none";} else {echo ""; }?>">
+        <h2>Book Return</h2>
+        <form action=".php" method="post" enctype="multipart/form-data">
+            <br>
+            <table>
+                <tr>
+                <th>Book Id</th>
+                <td><input type="text" name="BookId" placeholder="BookID"></td>
+                </tr>
+                <tr>
+                <th>User Name</th>
+                <td><input  type="text" name="UserName" placeholder="User Name"></td>
+                </tr>
+            </table>
+        <input type="submit" value="RETURN">
+        </form>
+        </div> 
+
     </body>
 </html>
