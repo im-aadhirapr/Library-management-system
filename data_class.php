@@ -4,7 +4,6 @@ class data extends db {
 
     private $BookId;
     private $BookName;
-    
     private $CreatedOn;
     private $UserName;
     private $IssuedOn;
@@ -68,16 +67,10 @@ class data extends db {
         }
     }
     
+    function IsRe() {
+        $sql="SELECT * FROM issue ";
+        $data=$this->connection->query($sql);
+        return $data->fetchAll();
+    }
+
 }
-// If the button is clicked, call the issueBook() function
-//if (isset($_POST['bookissue'])) {
- //   bookissue();
-//}
-
-// If the button is clicked, call the returnBook() function
-//if (isset($_POST['returnBook'])) {
-//    returnBook();
-//}
-
-// Close the database connection
-//mysqli_close($conn);

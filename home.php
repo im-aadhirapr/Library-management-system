@@ -35,6 +35,7 @@
         <button onclick="openpart('bookreport')" >BOOK REPORT</button>
         <button onclick="openpart('bookissue')" >TAKE BOOK</button>
         <button onclick="openpart('bookreturn')" >RETURN BOOK</button>
+        <button onclick="openpart('issuereturn')" >ISSUE RETURN TABLE</button>
 
         <div id="addbook" class="innerright portion" style="<?php  if(!empty($_REQUEST['viewid'])){ echo "display:none";} else {echo ""; }?>">
         <h2>ADD NEW BOOK</h2>
@@ -127,6 +128,37 @@
             <button type="submit">RETURN</button>
         </form>
         </div> 
+        </div>
+
+        <div class="rightinnerdiv">   
+            <div id="issuereturn" class="innerright portion" style="display:none">
+            <h2>ISSUE RETURN</h2>
+            <?php
+            $u=new data;
+            $u->setconnection();
+            $u->IsRE();
+            $recordset=$u->IsRe();
+
+            $table="<table style='font-family: Arial,sans-serif; border-collapse: ;width: 100%; border: 1px solid #000;'>
+            <tr><th>Book Id</th><th>Book Name</th><th>User Name</th><th>Issued On</th>
+            <th>Due On</th><th>Returned On</th></tr>";
+            foreach($recordset as $row){
+                $table.="<tr>";
+                $table.="<td>$row[0]</td>";
+                $table.="<td>$row[1]</td>";
+                $table.="<td>$row[2]</td>";
+                $table.="<td>$row[3]</td>";
+                $table.="<td>$row[4]</td>";
+                $table.="<td>$row[5]</td>";
+                $table.="</tr>";
+            }
+            $table.="</table>";
+
+            echo $table;
+            ?>
+            </div>
+            </div>
+        </div>
         </div>
 
     </body>
