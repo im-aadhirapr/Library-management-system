@@ -31,7 +31,7 @@ class data extends db {
     }
 
     function bookissue($BookId, $BookName, $UserName ){
-        $this->$BookId=$BookId;
+        $this->BookId=$BookId;
         $this->BookName=$BookName;
         $this->UserName=$UserName;
 
@@ -55,7 +55,7 @@ class data extends db {
 
 
     function bookreturn ($BookId, $UserName ) {
-        $this->$BookId=$BookId;
+        $this->BookId=$BookId;
         $this->UserName=$UserName;
 
         $sql = "UPDATE issue SET returnedOn = now() WHERE BookId = '$BookId' AND UserName = '$UserName'";

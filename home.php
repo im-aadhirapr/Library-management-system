@@ -11,6 +11,7 @@
         }
         document.getElementById(portion).style.display = "block";  
         }
+
     </script>
     </head>
     <body>
@@ -42,10 +43,6 @@
         <form action="addbookserver_page.php" method="post" enctype="multipart/form-data">
             <br>
             <table>
-                <tr>
-                <th>Book Id</th>
-                <td><input type="text" name="BookId" placeholder="BookID"></td>
-                </tr>
                 <tr>
                 <th>Book Name</th>
                 <td><input  type="text" name="BookName" placeholder="Book Name"></td>
