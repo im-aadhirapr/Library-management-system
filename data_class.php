@@ -31,6 +31,16 @@ class data extends db
         $sql1 = "SELECT * FROM books WHERE BookId = '$BookId'";
         $data = $this->connection->query($sql1);
 
+        $sql2 = "SELECT * FROM issue WHERE BookId = '$BookId' AND ReturnedOn IS NULL";
+        $statement = $this->connection->query($sql2);
+
+        $number = 0;
+        while ($row = $statement->fetch()) {
+            $number++;
+        }
+
+        
+
         $count = 0;
         while ($row = $data->fetch()) {
             $count++;
@@ -38,8 +48,10 @@ class data extends db
 
         if ($count== 0){
             echo 'Wrong BookId';
-        }else {
-            $sql = "INSERT INTO issue (BookId, Username, IssuedOn, DueOn) VALUES ('$BookId', '$UserName', '$IssuedOn', '$DueOn')";
+        } else if ($number > 0) {
+            echo 'Book taken';
+        } else {
+              $sql = "INSERT INTO issue (BookId, Username, IssuedOn, DueOn) VALUES ('$BookId', '$UserName', '$IssuedOn', '$DueOn')";
 
             if ($this->connection->exec($sql)) {
                 echo "Book issued successfully.";
@@ -62,7 +74,7 @@ class data extends db
     function bookreturn($BookId, $UserName)
     {
     
-        $sql = "UPDATE issue SET returnedOn = now() WHERE BookId = '$BookId' AND UserName = '$UserName'";
+        $sql = "UPDATE issue SET ReturnedOn = now() WHERE BookId = '$BookId' AND UserName = '$UserName'";
 
         if ($this->connection->exec($sql)) {
             echo "Book returned successfully.";
