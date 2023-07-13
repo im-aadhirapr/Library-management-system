@@ -4,12 +4,12 @@
     <link href="style.css" rel="stylesheet">
     <script>
         function openpart(portion) {
-        var i;
-        var x = document.getElementsByClassName("portion");
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";  
-        }
-        document.getElementById(portion).style.display = "block";  
+            var i;
+            var x = document.getElementsByClassName("portion");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";  
+            }
+            document.getElementById(portion).style.display = "block";  
         }
 
     </script>
@@ -32,14 +32,14 @@
 
         ?>
 
+        <button onclick="openpart('bookreport')" >ALL BOOK</button>
         <button onclick="openpart('addbook')" >ADD BOOK</button>
-        <button onclick="openpart('bookreport')" >BOOK REPORT</button>
         <button onclick="openpart('bookissue')" >ISSUE BOOK</button>
         <button onclick="openpart('bookreturn')" >RETURN BOOK</button>
-        <button onclick="openpart('issuereturn')" >ISSUE RETURN TABLE</button>
+        <button onclick="openpart('issuereturn')" >ISSUE RETURN</button>
 
-        <div id="addbook" class="innerright portion" style="<?php  if(!empty($_REQUEST['viewid'])){ echo "display:none";} else {echo ""; }?>">
-        <h2>ADD NEW BOOK</h2>
+        <div id="addbook" class="innerright portion" style="display:none">
+        <h2>ADD BOOK</h2>
         <form action="addbookserver_page.php" method="post" enctype="multipart/form-data">
             <br>
             <table>
@@ -47,18 +47,14 @@
                 <th>Book Name</th>
                 <td><input  type="text" name="BookName" placeholder="Book Name"></td>
                 </tr>
-                <tr>
-                <th>Created On</th>
-                <td><input type="date" name="CreatedOn" placeholder="Date"></td>
-                </tr>
             </table>
         <button type="submit">SUBMIT</button>
         </form>
         </div>
 
         <div class="rightinnerdiv">   
-            <div id="bookreport" class="innerright portion" style="display:none">
-            <h2>ALL BOOKS</h2>
+            <div id="bookreport" class="innerright portion" style="display:block">
+            <h2>ALL BOOK</h2>
             <?php
             $u=new data;
             $u->setconnection();
@@ -84,8 +80,8 @@
         </div>
 
         <div class="rightinnerdiv"> 
-        <div id="bookissue" class="innerright portion" style="<?php  if(!empty($_REQUEST['viewid'])){ echo "display:none";} else {echo ""; }?>">
-        <h2>BOOK ISSUE</h2>
+        <div id="bookissue" class="innerright portion" style="display:none">
+        <h2>ISSUE BOOK</h2>
         <form action="issue_book.php" method="post" enctype="multipart/form-data">
             <br>
             <table>
@@ -104,8 +100,8 @@
         </div>
 
         <div class="rightinnerdiv"> 
-        <div id="bookreturn" class="innerright portion" style="<?php  if(!empty($_REQUEST['viewid'])){ echo "display:none";} else {echo ""; }?>">
-        <h2>BOOK RETURN</h2>
+        <div id="bookreturn" class="innerright portion" style="display:none">
+        <h2>RETURN BOOK</h2>
         <form action="return_book.php" method="post" enctype="multipart/form-data">
             <br>
             <table>
