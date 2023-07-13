@@ -53,25 +53,22 @@ class data extends db {
         $data=$this->connection->query($sql);
         return $data;
     }
-}
 
-function returnBook() {
-    // Get the book name from the user
-    $bookname = $_POST['bookname'];
 
-    // Get the username from the user
-    $username = $_POST['username'];
+    function bookreturn ($BookId, $UserName ) {
+        $this->$BookId=$BookId;
+        $this->UserName=$UserName;
 
-    // Update the database
-    $sql = "UPDATE books SET returnedon = NOW() WHERE bookname = '$bookname' AND username = '$username'";
+        $sql = "UPDATE issue SET returnedOn = now() WHERE BookId = '$BookId' AND UserName = '$UserName'";
 
-    if (mysqli_query($conn, $sql)) {
-        echo "Book returned successfully";
-    } else {
-        echo "Error returning book: " . mysqli_error($conn);
+        if ($this->connection->exec($sql)) {
+        echo "Book returned successfully.";
+        } else {
+        echo "Error returning book.";
+        }
     }
+    
 }
-
 // If the button is clicked, call the issueBook() function
 //if (isset($_POST['bookissue'])) {
  //   bookissue();
@@ -84,5 +81,3 @@ function returnBook() {
 
 // Close the database connection
 //mysqli_close($conn);
-
-?>
