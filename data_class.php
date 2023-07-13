@@ -3,14 +3,6 @@
 class data extends db
 {
 
-    private $BookId;
-    private $BookName;
-    private $CreatedOn;
-    private $UserName;
-    private $IssuedOn;
-    private $ReturnedOn;
-    private $DueOn;
-
     function __construct()
     {
         echo "</br></br>";
@@ -32,20 +24,32 @@ class data extends db
 
     function bookissue($BookId, $UserName)
     {
-        $this->BookId = $BookId;
-        $this->UserName = $UserName;
 
         $IssuedOn = date('Y-m-d');
         $DueOn = date('Y-m-d', strtotime('+7 days'));
 
-        $sql = "INSERT INTO issue (BookId, Username, IssuedOn, DueOn) VALUES ('$BookId', '$UserName', '$IssuedOn', '$DueOn')";
+        $sql1 = "SELECT * FROM books WHERE BookId = '$BookId'";
+        $data = $this->connection->query($sql1);
 
-        if ($this->connection->exec($sql)) {
-            echo "Book issued successfully.";
-        } else {
-            echo "Error issuing book.";
+        $count = 0;
+        while ($row = $data->fetch()) {
+            $count++;
+        }
+
+        if ($count== 0){
+            echo 'Wrong BookId';
+        }else {
+            $sql = "INSERT INTO issue (BookId, Username, IssuedOn, DueOn) VALUES ('$BookId', '$UserName', '$IssuedOn', '$DueOn')";
+
+            if ($this->connection->exec($sql)) {
+                echo "Book issued successfully.";
+            } else {
+                echo "Error issuing book.";
+            }
         }
     }
+
+       
 
     function getbook()
     {
@@ -57,9 +61,7 @@ class data extends db
 
     function bookreturn($BookId, $UserName)
     {
-        $this->BookId = $BookId;
-        $this->UserName = $UserName;
-
+    
         $sql = "UPDATE issue SET returnedOn = now() WHERE BookId = '$BookId' AND UserName = '$UserName'";
 
         if ($this->connection->exec($sql)) {
