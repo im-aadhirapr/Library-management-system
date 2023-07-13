@@ -7,4 +7,3 @@ $obj = new data();
 $obj->setconnection();
 $obj->bookreturn($BookId, $UserName);
 ?>
-

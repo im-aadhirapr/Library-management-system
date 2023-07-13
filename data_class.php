@@ -30,15 +30,14 @@ class data extends db {
         }
     }
 
-    function bookissue($BookId, $BookName, $UserName ){
+    function bookissue($BookId, $UserName ){
         $this->BookId=$BookId;
-        $this->BookName=$BookName;
         $this->UserName=$UserName;
 
         $IssuedOn = date('Y-m-d');
         $DueOn = date('Y-m-d', strtotime('+7 days'));
 
-        $sql = "INSERT INTO issue (BookId, BookName, Username, IssuedOn, DueOn) VALUES ('$BookId', '$BookName', '$UserName', '$IssuedOn', '$DueOn')";
+        $sql = "INSERT INTO issue (BookId, Username, IssuedOn, DueOn) VALUES ('$BookId', '$UserName', '$IssuedOn', '$DueOn')";
 
         if ($this->connection->exec($sql)) {
         echo "Book issued successfully.";
@@ -68,9 +67,10 @@ class data extends db {
     }
     
     function IsRe() {
-        $sql="SELECT * FROM issue ";
+        $sql="SELECT iss.BookId,b.BookName,iss.UserName,iss.IssuedOn,iss.DueOn,iss.Returnedon FROM issue iss inner join books b on iss.BookId=b.BookId";
         $data=$this->connection->query($sql);
         return $data->fetchAll();
     }
 
 }
+//SELECT iss.BookId,b.BookName,iss.UserName,iss.IssuedOn,iss.DueOn,iss.Returnedon FROM issue iss inner join books b on iss.BookId=b.BookId"

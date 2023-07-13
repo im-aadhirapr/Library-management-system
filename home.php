@@ -34,7 +34,7 @@
 
         <button onclick="openpart('addbook')" >ADD BOOK</button>
         <button onclick="openpart('bookreport')" >BOOK REPORT</button>
-        <button onclick="openpart('bookissue')" >TAKE BOOK</button>
+        <button onclick="openpart('bookissue')" >ISSUE BOOK</button>
         <button onclick="openpart('bookreturn')" >RETURN BOOK</button>
         <button onclick="openpart('issuereturn')" >ISSUE RETURN TABLE</button>
 
@@ -65,7 +65,7 @@
             $u->getbook();
             $recordset=$u->getbook();
 
-            $table="<table style='font-family: Arial,sans-serif; border-collapse: ;width: 100%; border: 1px solid #000;'>
+            $table="<table style='border-collapse: ;width: 100%; border: 1px solid #000;'>
             <tr><th>Book Id</th><th>Book Name</th><th>Created On</th></tr>";
             foreach($recordset as $row){
                 $table.="<tr>";
@@ -85,17 +85,13 @@
 
         <div class="rightinnerdiv"> 
         <div id="bookissue" class="innerright portion" style="<?php  if(!empty($_REQUEST['viewid'])){ echo "display:none";} else {echo ""; }?>">
-        <h2>Book Issue</h2>
+        <h2>BOOK ISSUE</h2>
         <form action="issue_book.php" method="post" enctype="multipart/form-data">
             <br>
             <table>
                 <tr>
                 <th>Book Id</th>
                 <td><input type="text" name="BookId" placeholder="BookID"></td>
-                </tr>
-                <tr>
-                <th>Book Name</th>
-                <td><input type="text" name="BookName" placeholder="BookName"></td>
                 </tr>
                 <tr>
                 <th>User Name</th>
@@ -109,7 +105,7 @@
 
         <div class="rightinnerdiv"> 
         <div id="bookreturn" class="innerright portion" style="<?php  if(!empty($_REQUEST['viewid'])){ echo "display:none";} else {echo ""; }?>">
-        <h2>Book Return</h2>
+        <h2>BOOK RETURN</h2>
         <form action="return_book.php" method="post" enctype="multipart/form-data">
             <br>
             <table>
@@ -136,7 +132,7 @@
             $u->IsRE();
             $recordset=$u->IsRe();
 
-            $table="<table style='font-family: Arial,sans-serif; border-collapse: ;width: 100%; border: 1px solid #000;'>
+            $table="<table style='border-collapse: ;width: 100%; border: 1px solid #000;'>
             <tr><th>Book Id</th><th>Book Name</th><th>User Name</th><th>Issued On</th>
             <th>Due On</th><th>Returned On</th></tr>";
             foreach($recordset as $row){
