@@ -16,7 +16,7 @@ class data extends db
         $sql = "INSERT INTO books (BookId, BookName, CreatedOn)VALUES('','$BookName', '$CreatedOn')";
 
         if ($this->connection->exec($sql)) {
-            echo 'Inserted Book Successfully';
+            echo 'Added book successfully';
         } else {
             echo 'Failed to add book';
         }

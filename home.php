@@ -32,7 +32,7 @@
             <table>
                 <tr>
                     <th>Book Name</th>
-                    <td><input type="text" placeholder="Book Name"></td>
+                    <td><input type="text" name="BookName" placeholder="Book Name"></td>
                 </tr>
             </table>
             <button type="submit">SUBMIT</button>
@@ -69,11 +69,11 @@
             <table>
                 <tr>
                     <th>Book Id</th>
-                    <td><input type="text" placeholder="BookID"></td>
+                    <td><input type="text" name="BookId" placeholder="BookID"></td>
                 </tr>
                 <tr>
                     <th>User Name</th>
-                    <td><input type="text" placeholder="User Name"></td>
+                    <td><input type="text" name="UserName" placeholder="User Name"></td>
                 </tr>
             </table>
             <button type="submit">ISSUE</button>
@@ -87,11 +87,11 @@
             <table>
                 <tr>
                     <th>Book Id</th>
-                    <td><input type="text" placeholder="BookID"></td>
+                    <td><input type="text" name="BookId" placeholder="BookID"></td>
                 </tr>
                 <tr>
                     <th>User Name</th>
-                    <td><input type="text" placeholder="User Name"></td>
+                    <td><input type="text" name="UserName" placeholder="User Name"></td>
                 </tr>
             </table>
             <button type="submit">RETURN</button>
