@@ -16,9 +16,9 @@ class data extends db
         $sql = "INSERT INTO books (BookId, BookName, CreatedOn)VALUES('','$BookName', '$CreatedOn')";
 
         if ($this->connection->exec($sql)) {
-            header("Location:home.php?msg=done");
+            echo 'Inserted Book Successfully';
         } else {
-            header("Location:home.php?msg=fail");
+            echo 'Failed to add book';
         }
     }
 
@@ -38,8 +38,6 @@ class data extends db
         while ($row = $statement->fetch()) {
             $number++;
         }
-
-        
 
         $count = 0;
         while ($row = $data->fetch()) {

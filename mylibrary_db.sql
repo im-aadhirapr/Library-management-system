@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 13, 2023 at 02:17 PM
+-- Generation Time: Jul 18, 2023 at 05:51 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -38,11 +38,8 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`BookId`, `BookName`, `CreatedOn`) VALUES
-(1, 'Sherlock Holmes', '2023-07-11'),
-(2, 'The Alchemist', '2023-07-11'),
-(3, 'Twilight', '2023-07-12'),
-(8, 'Three Men In A Boat', '2023-07-13'),
-(9, 'Invisible Man', '2023-07-13');
+(11, 'Sherlock Holmes', '2023-07-13'),
+(12, 'Three Men In A Boat', '2023-07-13');
 
 -- --------------------------------------------------------
 
@@ -58,16 +55,6 @@ CREATE TABLE `issue` (
   `DueOn` date NOT NULL,
   `ReturnedOn` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `issue`
---
-
-INSERT INTO `issue` (`BookId`, `BookName`, `UserName`, `IssuedOn`, `DueOn`, `ReturnedOn`) VALUES
-(1, 'Sherlock Holmes', 'Aathira', '2023-07-13', '2023-07-20', '2023-07-13'),
-(2, 'The Alchemist', 'Sam', '2023-07-13', '2023-07-20', '2023-07-13'),
-(8, 'Three Men In A Boat', 'Aathira', '2023-07-13', '2023-07-20', '2023-07-13'),
-(9, 'Invisible Man', 'Anna', '2023-07-13', '2023-07-20', '2023-07-13');
 
 --
 -- Indexes for dumped tables
@@ -87,7 +74,7 @@ ALTER TABLE `books`
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `BookId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `BookId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

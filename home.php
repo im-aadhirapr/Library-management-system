@@ -1,5 +1,4 @@
 <html>
-
 <head>
     <title>Home</title>
     <link href="style.css" rel="stylesheet">
@@ -33,7 +32,7 @@
             <table>
                 <tr>
                     <th>Book Name</th>
-                    <td><input type="text" name="BookName" placeholder="Book Name"></td>
+                    <td><input type="text" placeholder="Book Name"></td>
                 </tr>
             </table>
             <button type="submit">SUBMIT</button>
@@ -63,8 +62,6 @@
         ?>
     </div>
 
-
-
     <div id="bookissue" class="portion" style="display:none">
         <h2>ISSUE BOOK</h2>
         <form action="issue_book.php" method="post" enctype="multipart/form-data">
@@ -72,18 +69,16 @@
             <table>
                 <tr>
                     <th>Book Id</th>
-                    <td><input type="text" name="BookId" placeholder="BookID"></td>
+                    <td><input type="text" placeholder="BookID"></td>
                 </tr>
                 <tr>
                     <th>User Name</th>
-                    <td><input type="text" name="UserName" placeholder="User Name"></td>
+                    <td><input type="text" placeholder="User Name"></td>
                 </tr>
             </table>
             <button type="submit">ISSUE</button>
         </form>
     </div>
-
-
 
     <div id="bookreturn" class="portion" style="display:none">
         <h2>RETURN BOOK</h2>
@@ -92,18 +87,16 @@
             <table>
                 <tr>
                     <th>Book Id</th>
-                    <td><input type="text" name="BookId" placeholder="BookID"></td>
+                    <td><input type="text" placeholder="BookID"></td>
                 </tr>
                 <tr>
                     <th>User Name</th>
-                    <td><input type="text" name="UserName" placeholder="User Name"></td>
+                    <td><input type="text" placeholder="User Name"></td>
                 </tr>
             </table>
             <button type="submit">RETURN</button>
         </form>
     </div>
-
-
 
     <div id="issuereturn" class="portion" style="display:none">
         <h2>ISSUE RETURN</h2>
@@ -131,7 +124,5 @@
         echo $table;
         ?>
     </div>
-
 </body>
-
 </html>
