@@ -100,7 +100,13 @@ class data extends db
             AND iss.DueOn >= CURRENT_DATE()
         THEN 0
         ELSE 0
-        END) Fine 
+        END) Fine
+        , (CASE 
+        WHEN iss.ReturnedOn IS NOT NULL
+            AND iss.DueOn < CURRENT_DATE()
+        THEN DATEDIFF(CURRENT_DATE(), iss.DueOn)
+        ELSE 0
+        END) FinePaid
         FROM issue iss inner join books b on iss.BookId=b.BookId";
         $data = $this->connection->query($sql);
         return $data->fetchAll();

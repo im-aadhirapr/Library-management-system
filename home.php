@@ -104,7 +104,7 @@
 
         $table = "<table style='border-collapse: ;width: 100%; border: 1px solid #000;'>
             <tr><th>Book Id</th><th>Book Name</th><th>User Name</th><th>Issued On</th>
-            <th>Due On</th><th>Returned On</th><th>Fine</th></tr>";
+            <th>Due On</th><th>Returned On</th><th>Fine</th><th>Fine Paid</th></tr>";
         foreach ($recordset as $row) {
             $table .= "<tr>";
             $table .= "<td>$row[0]</td>";
@@ -114,6 +114,7 @@
             $table .= "<td>$row[4]</td>";
             $table .= "<td>$row[5]</td>";
             $table .= "<td>$row[6]</td>";
+            $table .= "<td>$row[7]</td>";
             $table .= "</tr>";
         }
         $table .= "</table>";
