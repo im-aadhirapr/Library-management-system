@@ -89,10 +89,6 @@
                     <th>Book Id</th>
                     <td><input type="text" name="BookId" placeholder="BookID"></td>
                 </tr>
-                <tr>
-                    <th>User Name</th>
-                    <td><input type="text" name="UserName" placeholder="User Name"></td>
-                </tr>
             </table>
             <button type="submit">RETURN</button>
         </form>
@@ -108,7 +104,7 @@
 
         $table = "<table style='border-collapse: ;width: 100%; border: 1px solid #000;'>
             <tr><th>Book Id</th><th>Book Name</th><th>User Name</th><th>Issued On</th>
-            <th>Due On</th><th>Returned On</th></tr>";
+            <th>Due On</th><th>Returned On</th><th>Fine</th></tr>";
         foreach ($recordset as $row) {
             $table .= "<tr>";
             $table .= "<td>$row[0]</td>";
@@ -117,6 +113,7 @@
             $table .= "<td>$row[3]</td>";
             $table .= "<td>$row[4]</td>";
             $table .= "<td>$row[5]</td>";
+            $table .= "<td>$row[6]</td>";
             $table .= "</tr>";
         }
         $table .= "</table>";

@@ -25,6 +25,7 @@ class data extends db
     function bookissue($BookId, $UserName)
     {
 
+        $Fine = 0;
         $IssuedOn = date('Y-m-d');
         $DueOn = date('Y-m-d', strtotime('+7 days'));
 
@@ -44,12 +45,12 @@ class data extends db
             $count++;
         }
 
-        if ($count== 0){
+        if ($count == 0) {
             echo 'Wrong BookId';
         } else if ($number > 0) {
             echo 'Book taken';
         } else {
-              $sql = "INSERT INTO issue (BookId, Username, IssuedOn, DueOn) VALUES ('$BookId', '$UserName', '$IssuedOn', '$DueOn')";
+            $sql = "INSERT INTO issue (BookId, Username, IssuedOn, DueOn) VALUES ('$BookId', '$UserName', '$IssuedOn', '$DueOn')";
 
             if ($this->connection->exec($sql)) {
                 echo "Book issued successfully.";
@@ -59,7 +60,7 @@ class data extends db
         }
     }
 
-       
+
 
     function getbook()
     {
@@ -69,10 +70,10 @@ class data extends db
     }
 
 
-    function bookreturn($BookId, $UserName)
+    function bookreturn($BookId)
     {
-    
-        $sql = "UPDATE issue SET ReturnedOn = now() WHERE BookId = '$BookId' AND UserName = '$UserName'";
+
+        $sql = "UPDATE issue SET ReturnedOn = now() WHERE BookId = '$BookId'";
 
         if ($this->connection->exec($sql)) {
             echo "Book returned successfully.";
@@ -83,7 +84,24 @@ class data extends db
 
     function IsRe()
     {
-        $sql = "SELECT iss.BookId,b.BookName,iss.UserName,iss.IssuedOn,iss.DueOn,iss.Returnedon FROM issue iss inner join books b on iss.BookId=b.BookId";
+        $sql = "SELECT iss.BookId
+        ,b.BookName
+        ,iss.UserName
+        ,iss.IssuedOn
+        ,iss.DueOn
+        ,iss.Returnedon
+        , (CASE
+        WHEN iss.ReturnedOn IS NULL
+            AND iss.DueOn < CURRENT_DATE()
+        THEN DATEDIFF(CURRENT_DATE(), iss.DueOn)
+        WHEN iss.ReturnedOn IS NOT NULL
+        THEN 0
+        WHEN iss.ReturnedOn IS NULL
+            AND iss.DueOn >= CURRENT_DATE()
+        THEN 0
+        ELSE 0
+        END) Fine 
+        FROM issue iss inner join books b on iss.BookId=b.BookId";
         $data = $this->connection->query($sql);
         return $data->fetchAll();
     }
