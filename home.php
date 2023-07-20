@@ -16,7 +16,7 @@
 
 <body>
     <?php
-    include("data_class.php");
+        include("./DatabaseAccess/db_manager.php");
     ?>
 
     <button onclick="openpart('bookreport')">ALL BOOK</button>
@@ -27,7 +27,7 @@
 
     <div id="addbook" class="portion" style="display:none">
         <h2>ADD BOOK</h2>
-        <form action="addbookserver_page.php" method="post" enctype="multipart/form-data">
+        <form action="./DatabaseAccess/addbookserver_page.php" method="post" enctype="multipart/form-data">
             <br>
             <table>
                 <tr>
