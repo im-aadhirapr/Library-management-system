@@ -106,11 +106,6 @@
             <tr><th>Book Id</th><th>Book Name</th><th>User Name</th><th>Issued On</th>
             <th>Due On</th><th>Returned On</th><th>Fine</th><th>Fine Paid</th></tr>";
         foreach ($recordset as $row) {
-            if ($row[7] > 0) {
-                $color = 'green';
-            } else {
-                $color = 'red';
-            }
             $table .= "<tr>";
             $table .= "<td>$row[0]</td>";
             $table .= "<td>$row[1]</td>";

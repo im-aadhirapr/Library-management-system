@@ -93,7 +93,7 @@ class data extends db
         , (CASE
         WHEN iss.ReturnedOn IS NULL
             AND iss.DueOn < CURRENT_DATE()
-        THEN DATEDIFF(CURRENT_DATE(), iss.DueOn)
+        THEN 2 * DATEDIFF(CURRENT_DATE(), iss.DueOn)
         WHEN iss.ReturnedOn IS NOT NULL
         THEN 0
         WHEN iss.ReturnedOn IS NULL
@@ -104,7 +104,7 @@ class data extends db
         , (CASE 
         WHEN iss.ReturnedOn IS NOT NULL
             AND iss.DueOn < CURRENT_DATE()
-        THEN DATEDIFF(CURRENT_DATE(), iss.DueOn)
+        THEN 2 * DATEDIFF(CURRENT_DATE(), iss.DueOn)
         ELSE 0
         END) FinePaid
         FROM issue iss inner join books b on iss.BookId=b.BookId";
