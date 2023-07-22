@@ -34,6 +34,10 @@
                     <th>Book Name</th>
                     <td><input type="text" name="BookName" placeholder="Book Name"></td>
                 </tr>
+                <tr>
+                    <th>No of copies</th>
+                    <td><input type="text" name="AvailableCopies" placeholder="No of Copies"></td>
+                </tr>
             </table>
             <button type="submit">SUBMIT</button>
         </form>
@@ -48,12 +52,13 @@
         $recordset = $u->getbook();
 
         $table = "<table style='border-collapse: ;width: 100%; border: 1px solid #000;'>
-            <tr><th>Book Id</th><th>Book Name</th><th>Created On</th></tr>";
+            <tr><th>Book Id</th><th>Book Name</th><th>Created On</th><th>Available Copies</th></tr>";
         foreach ($recordset as $row) {
             $table .= "<tr>";
             $table .= "<td>$row[0]</td>";
             $table .= "<td>$row[1]</td>";
             $table .= "<td>$row[2]</td>";
+            $table .= "<td>$row[3]</td>";
             $table .= "</tr>";
         }
         $table .= "</table>";

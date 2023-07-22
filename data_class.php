@@ -8,12 +8,12 @@ class data extends db
         echo "</br></br>";
     }
 
-    function addbook($BookName)
+    function addbook($BookName, $AvailableCopies)
     {
 
         $CreatedOn = date('Y-m-d');
 
-        $sql = "INSERT INTO books (BookId, BookName, CreatedOn)VALUES('','$BookName', '$CreatedOn')";
+        $sql = "INSERT INTO books (BookId, BookName, CreatedOn, AvailableCopies)VALUES('','$BookName', '$CreatedOn', '$AvailableCopies')";
 
         if ($this->connection->exec($sql)) {
             echo 'Added book successfully';
@@ -25,7 +25,6 @@ class data extends db
     function bookissue($BookId, $UserName)
     {
 
-        $Fine = 0;
         $IssuedOn = date('Y-m-d');
         $DueOn = date('Y-m-d', strtotime('+7 days'));
 
@@ -34,6 +33,9 @@ class data extends db
 
         $sql2 = "SELECT * FROM issue WHERE BookId = '$BookId' AND ReturnedOn IS NULL";
         $statement = $this->connection->query($sql2);
+
+        $sql3 = "UPDATE books SET AvailableCopies = AvailableCopies - 1 WHERE BookId = '$BookId' AND AvailableCopies > 0";
+        $available = $this->connection->query($sql3);
 
         $number = 0;
         while ($row = $statement->fetch()) {
@@ -45,7 +47,10 @@ class data extends db
             $count++;
         }
 
-        if ($count == 0) {
+        if ($available == false)
+        {
+            echo "Error";
+        }else if ($count == 0) {
             echo 'Wrong BookId';
         } else if ($number > 0) {
             echo 'Book taken';
