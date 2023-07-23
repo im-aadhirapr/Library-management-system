@@ -63,6 +63,10 @@ class data extends db
                 echo "Error issuing book.";
             }
         }
+        if ($statement->fetch()['ReturnedOn'] !== NULL) {
+            $sql4 = "UPDATE books SET AvailableCopies = AvailableCopies + 1 WHERE BookId = '$BookId'";
+            $available = $this->connection->query($sql4);
+        }
     }
 
 
