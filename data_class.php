@@ -8,12 +8,12 @@ class data extends db
         echo "</br></br>";
     }
 
-    function addbook($BookName, $AvailableCopies)
+    function addbook($BookName)
     {
 
         $CreatedOn = date('Y-m-d');
 
-        $sql = "INSERT INTO books (BookId, BookName, CreatedOn, AvailableCopies)VALUES('','$BookName', '$CreatedOn', '$AvailableCopies')";
+        $sql = "INSERT INTO books (BookId, BookName, CreatedOn)VALUES('','$BookName', '$CreatedOn')";
 
         if ($this->connection->exec($sql)) {
             echo 'Added book successfully';
@@ -91,19 +91,14 @@ class data extends db
         WHEN iss.ReturnedOn IS NULL
             AND iss.DueOn < CURRENT_DATE()
         THEN DATEDIFF(CURRENT_DATE(), iss.DueOn)
-        WHEN iss.ReturnedOn IS NOT NULL
-        THEN 0
+        WHEN iss.ReturnedOn IS NOT NULL 
+            AND iss.DueOn < iss.ReturnedOn
+        THEN DATEDIFF(iss.ReturnedOn, iss.DueOn)
         WHEN iss.ReturnedOn IS NULL
             AND iss.DueOn >= CURRENT_DATE()
         THEN 0
         ELSE 0
         END) Fine
-        , (CASE 
-        WHEN iss.ReturnedOn IS NOT NULL
-            AND iss.DueOn < CURRENT_DATE()
-        THEN DATEDIFF(CURRENT_DATE(), iss.DueOn)
-        ELSE 0
-        END) FinePaid
         FROM issue iss inner join books b on iss.BookId=b.BookId";
         $data = $this->connection->query($sql);
         return $data->fetchAll();
