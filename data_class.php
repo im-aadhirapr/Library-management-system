@@ -34,9 +34,6 @@ class data extends db
         $sql2 = "SELECT * FROM issue WHERE BookId = '$BookId' AND ReturnedOn IS NULL";
         $statement = $this->connection->query($sql2);
 
-        $sql3 = "UPDATE books SET AvailableCopies = AvailableCopies - 1 WHERE BookId = '$BookId' AND AvailableCopies > 0";
-        $available = $this->connection->query($sql3);
-
         $number = 0;
         while ($row = $statement->fetch()) {
             $number++;
@@ -47,10 +44,7 @@ class data extends db
             $count++;
         }
 
-        if ($available == false)
-        {
-            echo "Error";
-        }else if ($count == 0) {
+        if ($count == 0) {
             echo 'Wrong BookId';
         } else if ($number > 0) {
             echo 'Book taken';
@@ -63,13 +57,7 @@ class data extends db
                 echo "Error issuing book.";
             }
         }
-        if ($statement->fetch()['ReturnedOn'] !== NULL) {
-            $sql4 = "UPDATE books SET AvailableCopies = AvailableCopies + 1 WHERE BookId = '$BookId'";
-            $available = $this->connection->query($sql4);
-        }
     }
-
-
 
     function getbook()
     {
